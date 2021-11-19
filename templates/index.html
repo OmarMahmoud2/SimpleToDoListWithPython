@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="icon" href="static/logo.png">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="center" >
+    <img class="cx" src="static/logo1.png" alt="logo">
+</div>
+  <div class="todoList">
+  <h1 style="text-align:center;">My To-Do List</h1>
+  <form class="items" method="post" action="/">
+    {% for line in data %}
+    <input name="item" id="{% print(line[0]) %}" value="{% print(line[1]) %}" type="checkbox" {% print(line[2]) %}>
+      <label for="{% print(line[0]) %}"><em><b>{% print(line[1]) %}</b></em> DueDate: {% print(line[3]) %} <a  methods="post" href="/del/{% print(line[1]) %}">❎</a> </label>
+    {% endfor %}
+    <h2 class="done">Done</h2>
+    <h2 class="pending">Pending</h2>
+       <button style="text-align:center;" value="Save" name="save" type="submit">Save</button>
+  </form>
+</div>
+
+<div class="center">
+    <form action="/" method="post" class="center">
+      <label for="newtask">New Task</label>
+      <input type="text" id="newtask" name="newtask"><br>
+        <label for="duedate">DueDate:</label>
+        <input type="date" id="duedate" name="newtask"><br>
+      <input type="submit" value="Submit">
+        <br> <br> <br> <p> @Omar Mahmoud 2021</p>
+    </form>
+</div>
+
+</body>
+<script rel="script" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script rel="script" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+</html>
